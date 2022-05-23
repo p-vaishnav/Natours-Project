@@ -1,0 +1,202 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+/*universal selector*/
+*,
+* ::after,
+* ::before {
+    margin: 0;
+    padding: 0;
+    /*what does border-bax do?? -> padding and margin ko hieght and width me include kar deta*/
+    box-sizing: inherit; /* good practice each and every element will inherit box-sizing*/
+}
+/*using rem is so much fun and it is amazing too rem is measured w.r.t to font-size set at html page
+ but we override users ability to change font-size
+*/
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.7;
+    color: #777;
+    padding: 3rem;
+    box-sizing: border-box;
+}
+
+.header {
+    height: 95vh;
+    background-image: linear-gradient(to right bottom, #7ed56fc8,  #28b485bf), url('../img/hero.jpg');
+    background-position: top;
+    background-size: cover;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 65%, 0% 100%);
+    position: relative;
+}
+
+.header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+}
+
+.header__logo {
+    height: 3.5rem;
+}
+
+.header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.header-primary {
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.header-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 4.5rem;
+
+    /*animation name*/
+    animation-name: moveInLeft;
+    animation-duration: 1.6s;
+
+    /*
+    animation-delay
+    */
+    
+}
+
+.header-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+
+    /*animation name*/
+    animation-name: moveInRight;
+    animation-duration: 1.6s;
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+
+    75% {
+        opacity: 1;
+        transform: translateX(3rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+
+    75% {
+        opacity: 1;
+        transform: translateX(-3rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInButton {
+    0% {
+        opacity: 1;
+        transform: translateY(5rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* there is nothing as not visited in btn , it is called link*/
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    /*when display is inline-block margin and padding are respected*/
+    display: inline-block;
+    transition: all .2s;
+    border-radius: 10rem;
+    position: relative;
+}
+
+.btn:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 3rem rgba(0,0,0,0.5);
+}
+
+/* when a tag is clicked it goes into active state*/
+.btn:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2);
+}
+
+.btn--white {
+    color: #777;
+    background-color: #fff;
+}
+
+/*TODO: read mroe about transition and after pseudo class*/
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .8s; /*it is a shorthand transition-property transition-duration*/
+}
+
+.btn--white::after {
+    background-color: rgb(245, 245, 245);
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+/*TODO: go through animations once*/
+.btn--animated {
+    animation-name: moveInButton;
+    animation-timing-function: ease-out;
+    animation-duration: 1.4s;
+    animation-delay: 1s;
+    animation-fill-mode: backwards;
+}
