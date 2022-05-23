@@ -1,0 +1,53 @@
+.story {
+    width: 75%;
+    box-shadow: 0 3rem 6rem rgba($color: $color-black, $alpha: .9);
+    margin: 0 auto;
+    background-color: $color-white;
+    border-radius: 3px;
+    padding: 6rem;
+    transform: skewX(-12deg);
+    transition: all .8s;
+    &__shape {
+        position: relative;
+        width: 20rem;
+        height: 20rem;
+        background-color: salmon;
+        float: left;
+        shape-outside: circle(50% at 50% 50%); /*Only woks if element has a defined width and height*/
+        clip-path: circle(45% at 50% 50%);
+        transform: translateX(-1rem) skewX(12deg);
+    }
+
+    &__img {
+        height: 100%;
+        transform: scale(1.4) translateX(-3rem);
+        transition: all .8s;
+        // transform: skewX(12deg);
+    }
+
+    &__text {
+        transform: skewX(12deg);
+    }
+
+    &__caption {
+        text-transform: uppercase;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        color: $color-white;
+        transform: translate(-50%, 0%);
+        font-size: 1.7rem;
+        text-align: center;
+        opacity: 0;
+        transition: all .8s;
+    }
+
+    &:hover &__caption {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+    &:hover &__img {
+        filter: blur(.5rem) brightness(80%);
+        transform: scale(1) translateX(-3rem);
+    }
+}

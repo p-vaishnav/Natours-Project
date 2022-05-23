@@ -1,0 +1,93 @@
+.form {
+    &__group {
+        margin-left: 4rem;
+        &:not(:last-child){
+            margin-bottom: 2rem;
+        }
+    }
+
+    &__input {
+        font-size: 1.5rem;
+        padding: 1.5rem 2rem; // more padding should be given in left and right; looks good
+        border-radius: 2px;
+        background-color: rgba($color-white, .5);
+        border-bottom: 3px solid transparent;
+        width: 80%;
+        display: block;
+        border: none; // there is a default border given to input tag
+        transition: all .5s;
+
+        &:focus {
+            outline: none;
+            box-shadow: 0rem 1rem 4rem rgba($color-black, .4);
+            border-bottom: 3px solid $color-primary;
+        }
+
+        &:focus:invalid {
+            border-bottom: 3px solid $color-secondary-dark;
+        }
+
+        &::-webkit-input-placeholder {
+            color: $color-grey-dark-2;
+        }
+    }
+
+    &__label {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-left: 2rem; // due to padding on input of 2rem
+        transition: all .5s;
+    }
+
+    &__input:placeholder-shown + &__label {
+        opacity: 0;
+        visibility: hidden; // TODO: why this??
+        transform: translateY(-4rem);
+    }
+
+    &__radio-group {
+        width: 49%;
+        display: inline-block;
+    }
+
+    &__radio-input{
+        display: none;
+    }
+    &__radio-label {
+        font-size: $default-font-size;
+        cursor: pointer;
+        color: $color-primary;
+        font-weight: 500;
+        position: relative;
+        padding-left: 4rem;
+        
+    }
+    &__radio-button {
+        height: 3rem;
+        width: 3rem;
+        border: 5px solid $color-primary;
+        border-radius: 50%;
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        top: -.7rem;
+
+        &::after {
+            content: "";
+            display: block;
+            height: 1.3rem;
+            width: 1.3rem;
+            border-radius: 50%;
+            border: 6.5px solid $color-primary;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+        }
+    }
+
+    &__radio-input:checked + &__radio-label &__radio-button::after {
+        opacity: 1;
+    }
+}

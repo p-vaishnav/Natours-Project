@@ -1,0 +1,62 @@
+@mixin clearFix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+// DEMO @media (max-width: 600px){}
+/*
+MEDIA QUERY MANAGER
+0-600 ->        PHONE
+600-900 ->      TABLET PROTRAIT
+600-1200 ->     TABLET LANDSCAPE
+1200-1800 ->    NORMAL SCREENS
+1800+ ->        BIG SCREENS
+*/
+
+// below one is also cool way
+/*@mixin respond-phone {
+    // this media-query is blessing in disguise
+    @media (max-width: 600) {
+        @content;
+    }
+}*/
+
+/*
+arguments
+$break-point
+phone
+tab-land
+tab-pot
+big-screen
+*/
+
+// TODO: em vs rem
+// 1em is 16px
+@mixin respond($break-point) {
+    @if $break-point == phone { // 600
+        @media (max-width: 37.5em) {
+            @content;
+        }
+    }
+
+    @if $break-point == tab-port { // 900
+        @media (max-width: 56.25em) {
+            @content;
+        }
+    }
+
+    @if $break-point == tab-land { // 1200
+        @media (max-width: 75em) {
+            @content;
+        }
+    }
+
+    @if $break-point == big-screen { // 1800
+        @media (min-width: 112.5em) {
+            @content;
+        }
+    }
+}

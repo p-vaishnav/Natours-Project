@@ -1,0 +1,55 @@
+.section-about {
+    background-color: $color-grey-light-1;
+    padding: 45rem 0;
+    margin-top: -40vh;
+}
+
+.section-features {
+    margin-top: -10rem;
+    padding: 20rem 0;
+    background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.6)), url('../../img/nat-4.jpg');
+    background-size: cover;
+    transform: skewY(-7deg);
+    & > * {
+        // I did applied in sections-feature not worked as expected
+        transform: skewY(7deg);
+    }
+    
+}
+
+.section-tours {
+    background-color: $color-grey-light-1;
+    padding: 45rem 0 50rem 0rem;
+    margin-top: -20vh;
+}
+
+.section-stories {
+    padding: 10rem 0;
+    position: relative;
+    // background-color: $color-grey-light-1;
+}
+
+.section-book {
+    padding: 15rem 0;
+    background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+}
+
+.book {
+    // linear-gradient by default is top to bottom, specifying angle make's rotation anti-clockwise
+    background-image: linear-gradient(
+                        110deg,
+                        rgba(#fff, .8) 0%,
+                        rgba(#fff, .8) 50%,
+                        rgba(transparent, 0) 50%),
+                    url('../../img/nat-10.jpg');
+    background-size: 100%; // same as cover it has said
+    box-shadow: 1.5 1.5rem 4rem rgba($color: #0000, $alpha: .5);
+    border-radius: .4rem;
+
+    height: 50rem;
+
+    &__form {
+        width: 50%;
+        height: 20rem;
+    }
+}

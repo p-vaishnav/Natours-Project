@@ -1,0 +1,82 @@
+.header-primary {
+    color: $color-white;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+
+    // sassy css
+    &--main {
+        display: block;
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 4.5rem;
+        /*Media query for phone*/
+        @include respond(phone) {
+            letter-spacing: 1rem;
+        }
+        /*animation name*/
+        animation-name: moveInLeft;
+        animation-duration: 1.6s;
+    }
+    
+    &--sub {
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.75rem;
+        /*Media query for phone*/
+        @include respond(phone) {
+            letter-spacing: 1rem;
+        }
+        /*animation name*/
+        animation-name: moveInRight;
+        animation-duration: 1.6s;
+    }
+}
+
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.7;
+    color: $color-gray;
+}
+
+.header-secondary {
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    display: inline-block;
+    text-align: center;
+    color: transparent;
+    -webkit-background-clip: text;
+    transition: all .2s;
+
+    /*Media Queries*/
+    @include respond(tab-port) {
+        font-size: 3rem;
+    }
+    @include respond(phone) {
+        font-size: 2.5rem;
+    }
+    &:hover {
+        transform: skewX(5deg) skewY(2deg) scale(1.1);
+        // TODO: study about text-shadow
+        text-shadow: 5rem 2rem 5rem #000;
+    }
+}
+
+.header-tertiary {
+    font-size: 2.6rem;
+    font-weight: 700;
+
+}
+
+.paragraph {
+    font-size: 1.6rem;
+    font-weight: 700;
+    &:not(:last-child) {
+        margin-bottom: 5rem;
+    }
+}

@@ -1,0 +1,44 @@
+.composition {
+    position: relative;
+    z-index: 10;
+    transition: all .8s;
+    outline-offset: 2rem;
+    &__photo {
+        position: absolute;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
+        width: 55%;
+        // border-radius: 2px;
+
+        &--p1 {
+            top: -3rem;
+            left: 0;
+        }
+
+        &--p2 {
+            top: -1rem;
+            right: 0;
+        }
+
+        &--p3 {
+            top: 6rem;
+            left: 20%;
+        }
+
+        &:hover {
+            // i did achieved photo's styling with below padding and border but jonas has used outline-offset
+            // padding: 1.5rem;
+            // border: 1rem solid $color-primary;
+
+            // jonas's way
+            outline: 1.5rem solid $color-primary;
+            z-index: 20;
+            transform: scale(1.25) translateY(-0.5rem);
+            padding: 2rem;
+            // TODO:
+            box-shadow: 0rem 1.5rem 2.5rem rgba($color-black, .9);
+        }
+    }
+    &:hover .composition__photo:not(:hover) {
+        transform: scale(0.95);
+    }
+}
